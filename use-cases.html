@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>okuji — Use Cases</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="How okuji is used — a personal travel journal and local trails for the curious, and verified-presence passports for libraries, schools, parks, museums, and towns." />
+<link rel="canonical" href="https://okuji.app/use-cases" />
+<link rel="icon" type="image/svg+xml" href="/assets/okuji-crest-ink.svg" />
+
+<!-- Open Graph (link unfurls for email, messaging, Slack, social) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="okuji" />
+<meta property="og:title" content="okuji — Use Cases" />
+<meta property="og:description" content="How okuji is used — a personal travel journal and local trails for the curious, and verified-presence passports for libraries, schools, parks, museums, and towns." />
+<meta property="og:url" content="https://okuji.app/use-cases" />
+<!-- og:image intentionally omitted: no raster feature graphic exists in this
+     repo yet (assets/ holds inline SVG crests only), and social platforms
+     don't reliably render SVG preview images. To make this link unfurl with
+     a card, drop a ~1200x630 PNG in /assets and add:
+       <meta property="og:image" content="https://okuji.app/assets/<file>.png" />
+       <meta name="twitter:image" content="https://okuji.app/assets/<file>.png" />
+     then switch twitter:card to summary_large_image. -->
+
+<!-- Twitter Card (text-only summary; no image, see note above) -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="okuji — Use Cases" />
+<meta name="twitter:description" content="How okuji is used — for the curious, and for the people who make places." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Use Cases — page-scoped helpers built from the landing tokens. Mirrors
+     .moves/.move for variable column counts; introduces no new design
+     language, colors, or type. */
+  section.cream{ background:var(--cream); }
+  .ahead{ text-align:center; max-width:680px; margin:0 auto 40px; }
+  .ahead h2{ font-family:'Source Serif 4',serif; font-weight:600; font-size:28px; letter-spacing:-0.01em; margin-top:10px; line-height:1.15; }
+  .ahead p{ color:var(--muted); font-size:16px; margin-top:10px; }
+  .uc-cards{ display:grid; gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:16px; overflow:hidden; }
+  .uc-cards.c2{ grid-template-columns:repeat(2,1fr); }
+  .uc-cards.c3{ grid-template-columns:repeat(3,1fr); }
+  .uc-cards.c4{ grid-template-columns:repeat(4,1fr); }
+  .uc-card{ background:var(--paper); padding:32px 26px; }
+  section.cream .uc-card{ background:var(--cream); }
+  .uc-card .ic{ width:34px; height:34px; color:var(--forest); margin:0 0 16px; }
+  .uc-card h3{ font-family:'Source Serif 4',serif; font-weight:600; font-size:21px; line-height:1.2; }
+  .uc-card p{ font-size:15px; color:var(--muted); margin-top:8px; line-height:1.55; }
+  .uc-list{ max-width:640px; margin:0 auto; }
+  @media(max-width:840px){ .uc-cards.c3,.uc-cards.c4{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:480px){ .uc-cards.c2,.uc-cards.c3,.uc-cards.c4{ grid-template-columns:1fr; } }
+  @media(max-width:680px){ section{ padding:64px 0; } }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="inner">
+      <a class="brand" href="/" style="text-decoration:none;">
+        <svg width="30" height="30" viewBox="0 0 64 64"><ellipse cx="25" cy="27" rx="14" ry="18" fill="none" stroke="#1f1d1a" stroke-width="5"/><path d="M6 41 Q16 47 26 42 Q35 38 45 44" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 5"/><circle cx="49" cy="44" r="5.5" fill="#c9a84c"/></svg>
+        <span class="wm">okuji</span>
+      </a>
+      <div class="links">
+        <a href="/#what">What it is</a>
+        <a href="/use-cases" class="cta">Use cases</a>
+        <a href="/#privacy">Privacy</a>
+        <a href="/#name">The name</a>
+        <a href="mailto:nathan@okuji.app?subject=okuji%20for%20institutions" class="cta">Reach out →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER (interior, not a hero) -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Use cases</span>
+        <h2>Passports for real places — and the people who make them.</h2>
+        <p>The same simple idea — earn a stamp where you actually go — put to work by curious travelers and by the institutions that bring places to life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAVELERS & THE CURIOUS -->
+  <section class="cream">
+    <div class="wrap">
+      <div class="ahead">
+        <span class="eyebrow">For travelers &amp; the curious</span>
+        <h2>Keep a record of where you actually went.</h2>
+      </div>
+      <div class="uc-cards c4">
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h9a3 3 0 0 1 3 3V20H8a2 2 0 0 1-2-2z"/><path d="M18 5.5h1.5V20H8"/><path d="M9.5 9h6M9.5 12.5h6"/></svg>
+          <h3>Personal travel journal</h3>
+          <p>Stamp where you go and keep private notes, voice memos, and photos tied to the place and the day.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 11 11l-2.5 4.5L13 13z"/></svg>
+          <h3>Follow a local's passport</h3>
+          <p>Pick up a passport made by someone who knows the area and earn its stamps at the real stops.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11A7 7 0 0 1 19 10c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <h3>Day trips &amp; regional adventures</h3>
+          <p>Turn a free afternoon into a route worth finishing — nearby stops, verified as you arrive.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="9" r="2.6"/><path d="M3.5 19a5 5 0 0 1 10 0"/><circle cx="16.5" cy="8" r="2.2"/><path d="M15 19a5.2 5.2 0 0 1 6-1.5"/></svg>
+          <h3>Family outings</h3>
+          <p>A low-stakes way to get everyone out the door — each stop is a stamp the kids actually earn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARIES -->
+  <section>
+    <div class="wrap">
+      <div class="ahead">
+        <span class="eyebrow">For libraries</span>
+        <h2>Send patrons out, bring them back with something to keep.</h2>
+      </div>
+      <div class="uc-list">
+        <ul class="uses">
+          <li><b>Summer reading programs</b> — Run summer reading as a stamp passport across branches and partner stops.</li>
+          <li><b>Community discovery</b> — Point patrons toward real places in town and reward the ones who actually go.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHOOLS & TEACHERS -->
+  <section class="cream">
+    <div class="wrap">
+      <div class="ahead">
+        <span class="eyebrow">For schools &amp; teachers</span>
+        <h2>Tie learning to the places it happened.</h2>
+      </div>
+      <div class="uc-cards c3">
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h11a2 2 0 0 1 2 2v13H7a2 2 0 0 1-2-2z"/><path d="M18 6.5h1.5v13H7"/><circle cx="11.5" cy="11" r="2.4"/><path d="M9.5 16h4"/></svg>
+          <h3>Field-trip passports</h3>
+          <p>Give every student a passport for the trip — stamps are earned on arrival, not on paper.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l9-4 9 4-9 4z"/><path d="M7 10.8V15c0 1.4 2.2 2.6 5 2.6s5-1.2 5-2.6v-4.2"/><path d="M21 8.5V14"/></svg>
+          <h3>Place-based learning</h3>
+          <p>Anchor a lesson to a real location and let students journal what they noticed there.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11l5 5v9H4z"/><path d="M8 9.5h6M8 13h4"/></svg>
+          <h3>Ranger &amp; docent notes</h3>
+          <p>A note from a ranger or docent is kept in the child's passport as part of the record.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARKS & PUBLIC LANDS -->
+  <section>
+    <div class="wrap">
+      <div class="ahead">
+        <span class="eyebrow">For parks &amp; public lands</span>
+        <h2>Trails worth finishing, with nothing to print.</h2>
+      </div>
+      <div class="uc-list">
+        <ul class="uses">
+          <li><b>Trail passports</b> — Lay out a trail or park circuit as stops collectors stamp as they go.</li>
+          <li><b>Visitor engagement</b> — Verified-presence engagement with no paper to print, lose, or fake.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSEUMS & CULTURAL SITES -->
+  <section class="cream">
+    <div class="wrap">
+      <div class="ahead">
+        <span class="eyebrow">For museums &amp; cultural sites</span>
+        <h2>Guide visitors through, site by site.</h2>
+      </div>
+      <div class="uc-cards c2">
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l8-5 8 5"/><path d="M6 9v8M10 9v8M14 9v8M18 9v8"/><path d="M3.5 20h17"/></svg>
+          <h3>Exhibit circuits</h3>
+          <p>Lead visitors through a sequence of stops with verified completion at each.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="17" r="2.2"/><path d="M8.2 7H13a3 3 0 0 1 0 6h-2a3 3 0 0 0 0 6h0.8"/></svg>
+          <h3>Multi-site heritage trails</h3>
+          <p>Link related sites into one passport that ties a region's story together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOWNS, CHAMBERS & CIVIC PARTNERS -->
+  <section>
+    <div class="wrap">
+      <div class="ahead">
+        <span class="eyebrow">For towns, chambers &amp; civic partners</span>
+        <h2>Move people between the places worth their time.</h2>
+      </div>
+      <div class="uc-cards c3">
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+          <h3>Shop &amp; explore passports</h3>
+          <p>Downtown "shop &amp; explore" passports that move foot traffic between real businesses.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M12 5h7l2.2 2.2L19 9.5h-7"/><path d="M12 11H5L2.8 13.2 5 15.5h7"/></svg>
+          <h3>Tourism &amp; wayfinding</h3>
+          <p>Point visitors to the places that reward the trip and let them keep the record.</p>
+        </div>
+        <div class="uc-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>
+          <h3>Community events</h3>
+          <p>Run an event as a passport — stops, stamps, and a keepsake when it's done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES OKUJI DIFFERENT (the single green band) -->
+  <section class="privacy">
+    <svg class="field" viewBox="0 0 1080 520" preserveAspectRatio="xMidYMid slice"><g id="ucField"></g></svg>
+    <div class="wrap inner">
+      <div class="sec-head">
+        <span class="eyebrow">What makes okuji different</span>
+        <h2>Real presence. Honest data. Yours to keep.</h2>
+        <p>The same things that make a passport feel real to a collector make the data trustworthy for an operator.</p>
+      </div>
+      <div class="promise">
+        <div class="pcard">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11A7 7 0 0 1 19 10c0 5.8-7 11-7 11z"/><path d="M9 10.2l2 2 4-4"/></svg>
+          <h4>Verified presence</h4>
+          <p>A stamp is earned at the real place, GPS-checked the moment it's collected — not a tap from the couch.</p>
+        </div>
+        <div class="pcard">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V12M10 20V6M15 20v-9M20 20V8"/><path d="M3.5 20h17"/></svg>
+          <h4>Real completion data</h4>
+          <p>See how many arrived and finished — aggregate counts and timing, never who.</p>
+        </div>
+        <div class="pcard">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+          <h4>Privacy-respecting</h4>
+          <p>No background location, no ads, no data sale. Location is read only at the moment of a stamp.</p>
+        </div>
+        <div class="pcard">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v16l-5-3.5L7 20z"/></svg>
+          <h4>A permanent keepsake</h4>
+          <p>A finished passport — stamps, notes, dates — is the collector's to keep, not a feed that scrolls away.</p>
+        </div>
+      </div>
+      <p class="foot">Verified presence · real completion data · privacy-respecting · a permanent keepsake.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA (institutional path is live; public is honest "coming soon") -->
+  <section class="cream">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Get started</span>
+        <h2>Bring okuji to your place.</h2>
+      </div>
+      <div class="paths">
+        <div class="path inst">
+          <span class="eyebrow">For institutions</span>
+          <h3>Make a passport for your place.</h3>
+          <p>Libraries, schools, parks, museums, towns, and civic partners are building passports now. Tell us about your place and we'll help you start.</p>
+          <div class="act">
+            <a class="mailbtn" href="mailto:nathan@okuji.app?subject=okuji%20for%20institutions">Reach out → nathan@okuji.app</a>
+          </div>
+        </div>
+        <div class="path curious">
+          <span class="eyebrow">For the curious</span>
+          <h3>Start collecting.</h3>
+          <p>Find a passport worth following and earn your first stamp somewhere real. Free to begin — okuji lands on Google Play soon.</p>
+          <div class="act">
+            <span class="soonnote ondark" style="letter-spacing:1.5px;">Coming soon · currently in closed testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (reused from the landing page, with cross-links) -->
+  <footer>
+    <div class="inner">
+      <div class="col">
+        <div class="wm">okuji</div>
+        <div class="tag">PASSPORTS FOR REAL PLACES</div>
+      </div>
+      <div class="col meta">
+        <div class="ln"><a href="/">← Back to okuji.app</a></div>
+        <div class="ln"><a href="/use-cases">Use cases</a></div>
+        <div class="ln"><a href="mailto:nathan@okuji.app">nathan@okuji.app</a></div>
+        <div class="ln"><a href="/privacy">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // shared topographic contour field generator (matches index.html)
+    function contours(elId, cx, cy, count, gap, op){
+      var el=document.getElementById(elId); if(!el) return; var h='';
+      for(var i=count;i>=1;i--){
+        var r=i*gap, ry=r*0.62, d='', N=60;
+        for(var k=0;k<=N;k++){ var a=(k/N)*Math.PI*2;
+          var wob=1+0.05*Math.sin(a*3+i)+0.04*Math.cos(a*5-i*0.7);
+          var x=cx+Math.cos(a)*r*wob, y=cy+Math.sin(a)*ry*wob;
+          d+=(k?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';
+        }
+        h+='<path d="'+d+'Z" fill="none" stroke="#c9a84c" stroke-width="'+(i%4===0?1.3:0.8)+'" opacity="'+op+'"/>';
+      }
+      h+='<path d="M-20 '+(cy+170)+' Q'+(cx*0.5)+' '+(cy+90)+' '+cx+' '+(cy+150)+' Q'+(cx*1.5)+' '+(cy+210)+' '+(cx*2+40)+' '+(cy+120)+'" fill="none" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2 12" opacity="'+(op*2.2)+'"/>';
+      el.innerHTML=h;
+    }
+    contours('ucField', 540, 220, 12, 44, 0.09);
+  </script>
+</body>
+</html>
