@@ -1,0 +1,9 @@
+{
+  "name": "okuji-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "okuji landing page + closed-beta waitlist capture",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  }
+}

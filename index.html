@@ -40,7 +40,7 @@
         <a href="/use-cases">Use cases</a>
         <a href="#privacy">Privacy</a>
         <a href="#name">The name</a>
-        <a href="#what" class="cta">How it works →</a>
+        <a href="#join" class="cta">Join the waitlist →</a>
       </div>
     </div>
   </nav>
@@ -54,6 +54,7 @@
       <div class="tag"><span class="ln"></span><span class="t">PASSPORTS FOR REAL PLACES</span><span class="ln"></span></div>
       <p class="lede">A curiosity platform for people who pay attention.</p>
       <div class="cta-row" id="get">
+        <a class="ghostbtn solid" href="#join">Join the waitlist →</a>
         <a class="ghostbtn" href="#what">See how it works ↓</a>
       </div>
       <p class="soonnote" style="margin-top:20px;letter-spacing:1.5px;">Coming soon · currently in closed testing</p>
@@ -219,6 +220,29 @@
     </div>
   </section>
 
+  <!-- WAITLIST -->
+  <section id="join">
+    <div class="wrap">
+      <div class="join-card">
+        <span class="eyebrow">Closed beta</span>
+        <h2>Be among the first to collect.</h2>
+        <p class="join-lede">okuji is in closed testing now. Leave your email and we'll invite you as spots open — okuji lands on Google Play soon.</p>
+        <form id="waitlistForm" class="join-form" novalidate>
+          <div class="join-row">
+            <input type="email" id="wlEmail" name="email" required placeholder="you@example.com" autocomplete="email" aria-label="Email address" />
+            <button type="submit" class="joinbtn" id="wlSubmit">Join the waitlist →</button>
+          </div>
+          <label class="join-consent">
+            <input type="checkbox" id="wlConsent" name="keepsakeConsent" />
+            <span>I'd like a printed keepsake of my journey. If I complete the beta, okuji may use my own stamps, journal notes, and photos to make a personal printed keepsake for me. Optional — my journal stays private either way.</span>
+          </label>
+          <p class="join-msg" id="wlMsg" role="status" aria-live="polite"></p>
+          <p class="join-fine">No spam, no sharing. One email when it's your turn.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="inner">
@@ -254,6 +278,36 @@
     }
     contours('heroField', 540, 250, 13, 46, 0.11);
     contours('privField', 540, 220, 12, 44, 0.09);
+  </script>
+
+  <script>
+    // Waitlist signup → POST /api/waitlist (Vercel serverless function).
+    (function(){
+      var form=document.getElementById('waitlistForm'); if(!form) return;
+      var msg=document.getElementById('wlMsg');
+      var btn=document.getElementById('wlSubmit');
+      var emailEl=document.getElementById('wlEmail');
+      var consentEl=document.getElementById('wlConsent');
+      function show(t,ok){ msg.textContent=t; msg.className='join-msg'+(ok?' ok':' err'); }
+      form.addEventListener('submit',function(ev){
+        ev.preventDefault();
+        var email=(emailEl.value||'').trim();
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ show('Please enter a valid email address.',false); emailEl.focus(); return; }
+        btn.disabled=true; var label=btn.textContent; btn.textContent='Joining…';
+        fetch('/api/waitlist',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({ email:email, keepsakeConsent:consentEl.checked })
+        })
+        .then(function(r){ return r.json().then(function(d){ return { ok:r.ok, d:d }; }).catch(function(){ return { ok:r.ok, d:{} }; }); })
+        .then(function(res){
+          if(res.ok){ form.reset(); show("You're on the list. We'll be in touch when it's your turn.",true); }
+          else { show((res.d&&res.d.error)||'Something went wrong. Please try again.',false); }
+        })
+        .catch(function(){ show('Network error. Please try again.',false); })
+        .finally(function(){ btn.disabled=false; btn.textContent=label; });
+      });
+    })();
   </script>
 </body>
 </html>

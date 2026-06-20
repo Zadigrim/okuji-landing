@@ -122,6 +122,27 @@
   .chip{ font-family:'Inter',sans-serif; font-size:12.5px; color:var(--muted); border:1px solid var(--hair); border-radius:20px; padding:5px 12px; background:#fff; }
   @media(max-width:760px){ .paths{ grid-template-columns:1fr; } }
 
+  /* ── WAITLIST ── */
+  #join .join-card{ max-width:680px; margin:0 auto; text-align:center; border:1.5px solid var(--hair); border-radius:18px; padding:46px 40px; background:#fbf6ea; }
+  #join h2{ font-family:'Source Serif 4',serif; font-weight:600; font-size:34px; letter-spacing:-0.01em; margin-top:12px; line-height:1.12; }
+  .join-lede{ color:var(--muted); font-size:17px; margin:12px auto 26px; max-width:500px; }
+  .join-form{ max-width:520px; margin:0 auto; text-align:left; }
+  .join-row{ display:flex; gap:10px; flex-wrap:wrap; }
+  .join-row input[type=email]{ flex:1; min-width:200px; font-family:'Inter',sans-serif; font-size:16px; color:var(--ink); background:#fff; border:1.5px solid var(--hair); border-radius:12px; padding:13px 16px; }
+  .join-row input[type=email]:focus{ outline:none; border-color:var(--gold); }
+  .joinbtn{ display:inline-flex; align-items:center; gap:8px; background:var(--forest); color:var(--cream); border:1.5px solid var(--forest); border-radius:12px; padding:13px 22px; font-family:'Inter',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:transform .15s; }
+  .joinbtn:hover{ transform:translateY(-1px); }
+  .joinbtn:disabled{ opacity:0.6; cursor:default; transform:none; }
+  .join-consent{ display:flex; gap:10px; align-items:flex-start; margin-top:16px; font-family:'Inter',sans-serif; font-size:13px; color:var(--muted); line-height:1.5; cursor:pointer; }
+  .join-consent input{ margin-top:3px; width:16px; height:16px; flex:none; accent-color:var(--forest); cursor:pointer; }
+  .join-msg{ font-family:'Inter',sans-serif; font-size:14px; margin-top:14px; min-height:18px; }
+  .join-msg.ok{ color:var(--forest); font-weight:600; }
+  .join-msg.err{ color:#9a3b2e; }
+  .join-fine{ font-family:'Inter',sans-serif; font-size:12px; color:var(--faint); margin-top:6px; }
+  .ghostbtn.solid{ background:var(--cream); color:var(--ink); border-color:var(--cream); }
+  .ghostbtn.solid:hover{ border-color:var(--gold); }
+  @media(max-width:480px){ #join .join-card{ padding:34px 22px; } .joinbtn{ width:100%; justify-content:center; } }
+
   /* ── FOOTER ── */
   footer{ background:var(--forestDeep); color:#cfc6a9; padding:54px 0 46px; }
   footer .inner{ max-width:1080px; margin:0 auto; padding:0 30px; display:flex; justify-content:space-between; align-items:flex-start; gap:30px; flex-wrap:wrap; }
