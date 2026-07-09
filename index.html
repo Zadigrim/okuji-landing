@@ -140,6 +140,27 @@
     </div>
   </section>
 
+  <!-- PASSPORT PREVIEW -->
+  <section id="preview">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">See a real passport</span>
+        <h2>Flip through a Portland passport.</h2>
+        <p>A passport for central Portland, with four day-trips reaching out in each direction — the Gorge to the east, the coast to the west, the valley south, the mountains north — so the local beauty is always within a day's reach. Turn the pages, and see the stamps waiting to be earned.</p>
+      </div>
+      <div class="preview-frame">
+        <iframe
+          id="passportPreview"
+          src="https://okujikobo.okuji.app/preview/c72ef8fe-98fb-4412-ad3c-34fb1dc3bdb0"
+          title="Flip through the Portland passport"
+          loading="lazy"
+          scrolling="no"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
   <!-- PRIVACY -->
   <section class="privacy" id="privacy">
     <svg class="field" viewBox="0 0 1080 520" preserveAspectRatio="xMidYMid slice"><g id="privField"></g></svg>
@@ -309,5 +330,20 @@
       });
     })();
   </script>
+  
+    <script>
+    (function(){
+      var f=document.getElementById('passportPreview'); if(!f) return;
+      var KOBO_ORIGIN='https://okujikobo.okuji.app';
+      window.addEventListener('message',function(e){
+        if(e.origin!==KOBO_ORIGIN) return;
+        var d=e.data;
+        if(d&&d.type==='okuji-preview-height'&&typeof d.height==='number'){
+          f.style.height=Math.max(320,Math.min(1200,Math.round(d.height)))+'px';
+        }
+      });
+    })();
+  </script>
+  
 </body>
 </html>
