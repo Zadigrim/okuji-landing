@@ -1,0 +1,182 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   okuji — /guide/* reading system
+
+   Self-contained port of the kobo app's guide layout + guide-ui.tsx
+   presentational primitives (Section / Step / FlagRow / Note / FigureSlot)
+   into plain CSS. No build step, no framework, no external fonts or CDNs —
+   the token VALUES below are lifted verbatim from okujiKobo/tailwind.config.ts
+   so these three pages render identically standalone.
+
+   Shared by the three unlinked, noindex guide pages:
+     /guide/adventurers  ·  /guide/employees  ·  /guide/institutions
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root{
+  /* canonical okuji palette (tailwind.config.ts) */
+  --ink:#1f1d1a;
+  --paper:#f6f1e6;
+  --cream:#f5f0e8;
+  --muted:#6b6356;
+  --hairline:#c8bfa9;
+  --accent:#c9a84c;
+  --clay:#b07a4f;   /* the single Note / code accent — warm terracotta */
+  --green:#1d9e75;
+  --red:#9b2335;
+  --blue:#2d5a8e;
+  --navy:#0d1b2a;
+
+  /* radii (tailwind.config.ts borderRadius) */
+  --r-card:6px;
+  --r-panel:8px;
+  --r-modal:12px;
+  --r-pill:20px;    /* rounded-program-pill — the Step number chip */
+
+  /* opacity-derived tones (Tailwind's ink/90, hairline/60, accent/15, …).
+     Softer tones come from opacity over ink / paper / cream, never tint
+     scales — per the palette rule in tailwind.config.ts. */
+  --ink-90:rgba(31,29,26,0.9);        /* text-ink/90     */
+  --hairline-60:rgba(200,191,169,0.6); /* border-hairline/60 */
+  --accent-15:rgba(201,168,76,0.15);   /* bg-accent/15    */
+  --cream-50:rgba(245,240,232,0.5);    /* bg-cream/50     */
+  --paper-60:rgba(246,241,230,0.6);    /* bg-paper/60     */
+
+  /* No @import / no CDN font. Inter is the app's font-sans; fall back to the
+     platform UI sans so the wordmark + body read the same everywhere. */
+  --font-sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,"Liberation Mono",Consolas,monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  min-height:100vh;                 /* min-h-screen */
+  background:var(--paper);          /* bg-paper     */
+  color:var(--ink);                 /* text-ink     */
+  font-family:var(--font-sans);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ── reading shell (layout.tsx) ─────────────────────────────────────────── */
+.guide-header{ border-bottom:1px solid var(--hairline); }
+.guide-header .inner{
+  max-width:768px;                  /* max-w-3xl */
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  padding:20px 24px;                /* py-5 px-6 */
+}
+.guide-wm{                          /* wordmark — lowercase, links nowhere */
+  font-size:18px;                   /* text-lg */
+  font-weight:500;                  /* font-medium */
+  letter-spacing:-0.02em;
+  color:var(--ink);
+}
+.guide-sub{ margin-left:12px; font-size:13px; color:var(--muted); } /* ml-3 */
+.guide-main{
+  max-width:768px;                  /* max-w-3xl */
+  margin:0 auto;
+  padding:40px 24px 96px;           /* py-10 px-6 pb-24 */
+}
+
+/* ── article head ───────────────────────────────────────────────────────── */
+.guide-title{
+  font-size:30px;                   /* text-[30px] */
+  font-weight:700;                  /* font-bold */
+  letter-spacing:-0.015em;
+  line-height:1.15;
+  color:var(--ink);
+}
+.guide-lead{
+  margin-top:12px;                  /* mt-3 */
+  font-size:16px;                   /* text-[16px] */
+  line-height:1.625;                /* leading-relaxed */
+  color:var(--muted);
+}
+
+/* ── Section ────────────────────────────────────────────────────────────── */
+.section{ margin-top:40px; }        /* mt-10 */
+.section > h2{
+  border-bottom:1px solid var(--hairline);
+  padding-bottom:8px;               /* pb-2 */
+  font-size:19px;                   /* text-[19px] */
+  font-weight:600;                  /* font-semibold */
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+.section-body{
+  margin-top:16px;                  /* mt-4 */
+  font-size:15px;                   /* text-[15px] */
+  line-height:1.625;                /* leading-relaxed */
+  color:var(--ink-90);              /* text-ink/90 */
+}
+.section-body > * + *{ margin-top:16px; }  /* space-y-4 */
+
+/* ── unordered lists (ml-5 list-disc space-y-2 marker:text-hairline) ─────── */
+.disc{ margin-left:20px; list-style:disc; }
+.disc > li + li{ margin-top:8px; }
+.disc li::marker{ color:var(--hairline); }
+
+/* ── inline code (text-[13px] text-clay) ────────────────────────────────── */
+code{ font-family:var(--font-mono); font-size:13px; color:var(--clay); }
+
+/* ── Step (numbered task flow) ──────────────────────────────────────────── */
+.steps > * + *{ margin-top:24px; }  /* space-y-6 */
+.step{ display:flex; gap:16px; }    /* gap-4 */
+.step-n{
+  margin-top:2px;                   /* mt-[2px] */
+  flex:0 0 auto;                    /* shrink-0 */
+  width:28px; height:28px;          /* h-7 w-7 */
+  display:flex; align-items:center; justify-content:center;
+  border-radius:var(--r-pill);      /* rounded-program-pill */
+  background:var(--accent-15);      /* bg-accent/15 */
+  font-size:13px; font-weight:600;  /* text-[13px] font-semibold */
+  color:var(--ink);
+}
+.step-body > * + *{ margin-top:8px; } /* space-y-2 */
+.step-body h3{ font-size:15px; font-weight:600; color:var(--ink); }
+.step-body p{ font-size:15px; line-height:1.625; color:var(--ink-90); }
+
+/* ── FlagRow (capability flag → what it does) ───────────────────────────── */
+.flag{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:4px;                          /* gap-1 */
+  border-bottom:1px solid var(--hairline-60);
+  padding:12px 0;                   /* py-3 */
+}
+.flag .flag-name{ font-size:13px; font-weight:500; color:var(--clay); } /* font-medium */
+.flag p{ font-size:15px; line-height:1.625; color:var(--ink-90); }
+@media (min-width:640px){           /* sm: */
+  .flag{ grid-template-columns:220px 1fr; gap:16px; } /* sm:grid-cols-[220px_1fr] sm:gap-4 */
+}
+
+/* ── Note (quiet privacy / honest-data aside) ───────────────────────────── */
+.note{
+  margin-top:16px;                  /* mt-4 */
+  border-left:2px solid var(--accent);
+  background:var(--cream-50);       /* bg-cream/50 */
+  padding:12px 16px;                /* py-3 px-4 */
+  font-size:14px;                   /* text-[14px] */
+  line-height:1.625;
+  color:var(--muted);
+}
+
+/* ── FigureSlot (dashed placeholder frame — no images yet, v1) ───────────── */
+.figure{ margin-top:20px; }         /* mt-5 (overrides the 16px space-y-4) */
+.figure .frame{
+  display:flex; align-items:center; justify-content:center;
+  min-height:160px;                 /* min-h-[160px] */
+  padding:0 16px;                   /* px-4 */
+  text-align:center;
+  border:1px dashed var(--hairline);
+  border-radius:var(--r-panel);     /* rounded-panel */
+  background:var(--paper-60);       /* bg-paper/60 */
+}
+.figure .cap{
+  font-size:12px;                   /* text-[12px] */
+  text-transform:uppercase;
+  letter-spacing:0.025em;           /* tracking-wide */
+  color:var(--muted);
+}

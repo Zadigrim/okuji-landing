@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>For institutions — okuji</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/okuji-crest-ink.svg" />
+  <link rel="stylesheet" href="/guide/guide.css" />
+</head>
+<body>
+  <header class="guide-header">
+    <div class="inner">
+      <span class="guide-wm">okuji</span>
+      <span class="guide-sub">field guide</span>
+    </div>
+  </header>
+
+  <main class="guide-main">
+    <article>
+      <h1 class="guide-title">Running your program</h1>
+      <p class="guide-lead">
+        As an administrator you decide who on your team can do what, watch how
+        your passports are performing, and manage those passports through their
+        life. This is how each of those works.
+      </p>
+
+      <section class="section">
+        <h2>Your team</h2>
+        <div class="section-body">
+          <p>
+            Your roster lives under <strong>Program → Employees</strong>. To
+            add someone, enter their email and give them a role label. They’ll
+            need an okuji account already — the roster looks them up by that email,
+            and no invitation is sent on your behalf, so have them sign up first if
+            they haven’t. Removing someone, or changing what they can do, is a
+            toggle away on their row.
+          </p>
+          <figure class="figure">
+            <div class="frame"><span class="cap">figure — the employees roster with permission toggles</span></div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What each permission does</h2>
+        <div class="section-body">
+          <p>
+            Every teammate’s access is a set of capability flags. Grant only
+            what the role needs:
+          </p>
+          <div>
+            <div class="flag">
+              <code class="flag-name">can_verify</code>
+              <p>
+                Use the terminal to look up a collector’s completion code and
+                confirm it. This is the baseline for anyone working a counter.
+              </p>
+            </div>
+            <div class="flag">
+              <code class="flag-name">can_distribute_prizes</code>
+              <p>
+                Mark a prize as handed out at the terminal. Pair it with
+                <code>can_verify</code> for staff
+                who actually give rewards to visitors.
+              </p>
+            </div>
+            <div class="flag">
+              <code class="flag-name">can_design</code>
+              <p>
+                Create and edit passports, and publish, unpublish, or remove them.
+                This is your design-side permission.
+              </p>
+            </div>
+            <div class="flag">
+              <code class="flag-name">can_manage_employees</code>
+              <p>
+                Manage this roster and handle passport transfers. Give it only to
+                people you trust to change others’ access.
+              </p>
+            </div>
+            <div class="flag">
+              <code class="flag-name">can_view_analytics</code>
+              <p>
+                See your institution’s numbers in Program Overview and
+                Analytics. Without it, a teammate only sees their own work.
+              </p>
+            </div>
+            <div class="flag">
+              <code class="flag-name">can_manage_billing</code>
+              <p>
+                Change your institution’s tier and pricing settings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Your numbers</h2>
+        <div class="section-body">
+          <p>
+            Program Overview and Analytics show how your passports are doing:
+            active collectors over the last 30 days, acquisitions and stamps placed
+            over the last 90, your completion rate, and prizes handed out versus
+            still pending. Each is a live count, drawn straight from what’s
+            actually happening — never a sample or a placeholder.
+          </p>
+          <div class="note">
+            These numbers are always aggregate: how many, and when. okuji never
+            shows you which individual collector did what — no names, no emails, no
+            per-person journeys. It’s the shape of your program, not
+            surveillance of your visitors.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Managing passports</h2>
+        <div class="section-body">
+          <p>A passport moves through three states in its life:</p>
+          <ul class="disc">
+            <li>
+              <strong>Draft</strong> — you’re still building it; no one can
+              collect it yet.
+            </li>
+            <li>
+              <strong>Published</strong> — it’s live and collectors can pick
+              it up.
+            </li>
+            <li>
+              <strong>Archived</strong> — retired from view, kept for the record.
+            </li>
+          </ul>
+          <p>
+            You can unpublish a live passport back to draft at any time; anyone who
+            already holds it keeps it. Once a passport <em>has</em> holders,
+            re-publishing changes is handled carefully — corrections go through
+            with a note on what changed, so you can’t quietly rewrite a
+            passport out from under the people collecting it. And a passport can
+            only be deleted outright while no one has acquired it; after that, it’s
+            archived rather than erased, so a collector’s record is never
+            destroyed.
+          </p>
+          <p>
+            One gate to know about: publishing a <em>personal</em> passport (one
+            not owned by an institution) requires Studio. Institutional passports
+            publish without it.
+          </p>
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
