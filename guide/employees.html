@@ -1,134 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>For location staff — okuji</title>
-  <link rel="icon" type="image/svg+xml" href="/assets/okuji-crest-ink.svg" />
-  <link rel="stylesheet" href="/guide/guide.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>For location staff — okuji</title>
+<meta name="description" content="How location staff verify a collector's completion code at the okuji terminal and hand out prizes — step by step." />
+<link rel="icon" type="image/svg+xml" href="/assets/okuji-crest-ink.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/guide/guide.css" />
 </head>
 <body>
-  <header class="guide-header">
+  <nav>
     <div class="inner">
-      <span class="guide-wm">okuji</span>
-      <span class="guide-sub">field guide</span>
+      <a class="brand" href="/" style="text-decoration:none;">
+        <svg width="30" height="30" viewBox="0 0 64 64"><ellipse cx="25" cy="27" rx="14" ry="18" fill="none" stroke="#1f1d1a" stroke-width="5"/><path d="M6 41 Q16 47 26 42 Q35 38 45 44" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 5"/><circle cx="49" cy="44" r="5.5" fill="#c9a84c"/></svg>
+        <span class="wm">okuji</span>
+      </a>
+      <div class="links">
+        <a href="/#what">What it is</a>
+        <a href="/use-cases">Use cases</a>
+        <a href="/#privacy">Privacy</a>
+        <a href="/#name">The name</a>
+        <a href="mailto:nathan@okuji.app?subject=okuji%20for%20institutions" class="cta">Reach out →</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main class="guide-main">
-    <article>
-      <h1 class="guide-title">Handing out prizes at the terminal</h1>
-      <p class="guide-lead">
-        When a collector finishes an okuji passport, they earn a reward to pick
-        up from you. Your whole job at the counter is: check their code, confirm
-        it, hand over the prize. This takes about fifteen seconds. Here it is,
-        step by step.
-      </p>
-
-      <section class="section">
-        <h2>Before your shift</h2>
-        <div class="section-body">
-          <p>
-            You verify collectors on the <strong>okuji terminal</strong> — a web
-            page you open in the venue’s browser and sign in to. If it says
-            access denied, your manager needs to switch on your terminal access
-            (<code>can_verify</code>), plus
-            permission to hand prizes out
-            (<code>can_distribute_prizes</code>).
-            Once you’re in, leave it open on the counter for the shift.
+  <main class="guide-page">
+    <div class="guide-wrap">
+      <article>
+        <header class="guide-head">
+          <span class="eyebrow">Field guide · For location staff</span>
+          <h1>Handing out prizes at the terminal</h1>
+          <p class="guide-lead">
+            When a collector finishes an okuji passport, they earn a reward to pick
+            up from you. Your whole job at the counter is: check their code, confirm
+            it, hand over the prize. This takes about fifteen seconds. Here it is,
+            step by step.
           </p>
-          <figure class="figure">
-            <div class="frame"><span class="cap">figure — the terminal home screen</span></div>
-          </figure>
-        </div>
-      </section>
+        </header>
 
-      <section class="section">
-        <h2>When a collector shows you a code</h2>
-        <div class="section-body">
-          <div class="steps">
-            <div class="step">
-              <div class="step-n" aria-hidden="true">1</div>
-              <div class="step-body">
-                <h3>Take the code</h3>
-                <p>
-                  The collector will either read you a code that looks like
-                  <code>MCM-XXXX-XX</code> or show a
-                  QR on their phone. To type it, key it into the box and submit —
-                  it’s not case-sensitive.
-                </p>
+        <section class="section">
+          <h2>Before your shift</h2>
+          <div class="section-body">
+            <p>
+              You verify collectors on the <strong>okuji terminal</strong> — a web
+              page you open in the venue’s browser and sign in to. If it says
+              access denied, your manager needs to switch on your terminal access
+              (<code>can_verify</code>), plus
+              permission to hand prizes out
+              (<code>can_distribute_prizes</code>).
+              Once you’re in, leave it open on the counter for the shift.
+            </p>
+            <figure class="figure">
+              <div class="frame"><span class="cap">figure — the terminal home screen</span></div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>When a collector shows you a code</h2>
+          <div class="section-body">
+            <div class="steps">
+              <div class="step">
+                <div class="step-n" aria-hidden="true">1</div>
+                <div class="step-body">
+                  <h3>Take the code</h3>
+                  <p>
+                    The collector will either read you a code that looks like
+                    <code>MCM-XXXX-XX</code> or show a
+                    QR on their phone. To type it, key it into the box and submit —
+                    it’s not case-sensitive.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-n" aria-hidden="true">2</div>
+                <div class="step-body">
+                  <h3>Or scan it</h3>
+                  <p>
+                    Prefer the camera? Tap <strong>Open camera scanner</strong>, point
+                    it at their QR, and it reads the code for you. If the camera
+                    won’t start, the terminal just tells you to type the code
+                    instead — either way gets you to the same place.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-n" aria-hidden="true">3</div>
+                <div class="step-body">
+                  <h3>Confirm what you see</h3>
+                  <p>
+                    The screen shows the collector’s first name, a
+                    <strong>completion confirmed</strong> check, and the
+                    <strong>prize to give them</strong>. The prize is set by management
+                    — you don’t change it, you just read it and hand it over.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-n" aria-hidden="true">4</div>
+                <div class="step-body">
+                  <h3>Hand it out</h3>
+                  <p>
+                    Give them the prize and tap <strong>Distributed</strong>. If you
+                    can’t fulfil it right now — out of stock, wrong counter — tap
+                    <strong>Pending</strong> instead so it’s on record and someone
+                    can finish it later. Either way, you’re done.
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="step">
-              <div class="step-n" aria-hidden="true">2</div>
-              <div class="step-body">
-                <h3>Or scan it</h3>
-                <p>
-                  Prefer the camera? Tap <strong>Open camera scanner</strong>, point
-                  it at their QR, and it reads the code for you. If the camera
-                  won’t start, the terminal just tells you to type the code
-                  instead — either way gets you to the same place.
-                </p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-n" aria-hidden="true">3</div>
-              <div class="step-body">
-                <h3>Confirm what you see</h3>
-                <p>
-                  The screen shows the collector’s first name, a
-                  <strong>completion confirmed</strong> check, and the
-                  <strong>prize to give them</strong>. The prize is set by management
-                  — you don’t change it, you just read it and hand it over.
-                </p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-n" aria-hidden="true">4</div>
-              <div class="step-body">
-                <h3>Hand it out</h3>
-                <p>
-                  Give them the prize and tap <strong>Distributed</strong>. If you
-                  can’t fulfil it right now — out of stock, wrong counter — tap
-                  <strong>Pending</strong> instead so it’s on record and someone
-                  can finish it later. Either way, you’re done.
-                </p>
-              </div>
+            <figure class="figure">
+              <div class="frame"><span class="cap">figure — a confirmed code with the prize to hand out</span></div>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>If a code won't go through</h2>
+          <div class="section-body">
+            <p>The terminal will tell you why. The three you’ll see:</p>
+            <ul class="disc">
+              <li>
+                <strong>Already redeemed.</strong> This code was used before. There’s
+                no override — a prize is handed out once.
+              </li>
+              <li>
+                <strong>Not found.</strong> The code was mistyped or isn’t one of
+                ours. Ask them to read it again, or scan the QR.
+              </li>
+              <li>
+                <strong>Expired.</strong> The reward window has closed. Nothing to do
+                at the counter; send them to whoever runs the program.
+              </li>
+            </ul>
+            <div class="note">
+              You only ever mark that a prize was given — the terminal doesn’t
+              track stock levels, and it never shows you anyone’s personal
+              collection or journal. Just the code and the prize.
             </div>
           </div>
-          <figure class="figure">
-            <div class="frame"><span class="cap">figure — a confirmed code with the prize to hand out</span></div>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>If a code won't go through</h2>
-        <div class="section-body">
-          <p>The terminal will tell you why. The three you’ll see:</p>
-          <ul class="disc">
-            <li>
-              <strong>Already redeemed.</strong> This code was used before. There’s
-              no override — a prize is handed out once.
-            </li>
-            <li>
-              <strong>Not found.</strong> The code was mistyped or isn’t one of
-              ours. Ask them to read it again, or scan the QR.
-            </li>
-            <li>
-              <strong>Expired.</strong> The reward window has closed. Nothing to do
-              at the counter; send them to whoever runs the program.
-            </li>
-          </ul>
-          <div class="note">
-            You only ever mark that a prize was given — the terminal doesn’t
-            track stock levels, and it never shows you anyone’s personal
-            collection or journal. Just the code and the prize.
-          </div>
-        </div>
-      </section>
-    </article>
+        </section>
+      </article>
+    </div>
   </main>
+
+  <footer>
+    <div class="inner">
+      <div class="col">
+        <div class="wm">okuji</div>
+        <div class="tag">PASSPORTS FOR REAL PLACES</div>
+      </div>
+      <div class="col meta">
+        <div class="ln"><a href="/">← Back to okuji.app</a></div>
+        <div class="ln"><a href="/use-cases">Use cases</a></div>
+        <div class="ln"><a href="mailto:nathan@okuji.app">nathan@okuji.app</a></div>
+        <div class="ln"><a href="/privacy">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
